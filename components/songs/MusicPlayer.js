@@ -1,6 +1,6 @@
 import  { useRoute, useNavigation } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
-import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity, Image } from "react-native";
 import { Audio } from "expo-av";
 import { Ionicons } from "@expo/vector-icons";
 import { Appbar, useTheme, ProgressBar} from "react-native-paper";
@@ -26,6 +26,7 @@ export default function MusicPlayer() {
   };
   useEffect(() => {
     if(currentTime && duration) {
+      console.log(currentTime)
       setProgress(currentTime/duration)
     }
   }, [currentTime, duration])
@@ -35,7 +36,7 @@ export default function MusicPlayer() {
     <>
       <Appbar.Header style={{ backgroundColor: them.colors.secondary }}>
       <Appbar.BackAction onPress={_goBack} />
-        <Appbar.Content title="Home" />
+        <Appbar.Content title={currentTrack.name} />
       </Appbar.Header>
       <View style={styles.container}>
         <View
@@ -47,11 +48,12 @@ export default function MusicPlayer() {
             borderRadius: 20,
           }}
         >
-          <Ionicons
+          {currentTrack.image ? <Image source={{ uri: currentTrack.image }} style={{ width: 380, height: 380 }} /> : <Ionicons
             name={"musical-notes"}
             size={180}
             color={them.colors.primary}
-          />
+          />}
+     
           <Text style={{ fontSize: 25, fontWeight: "bold" }}>{currentTrack.name}</Text>
         </View>
         <View

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { ProgressBar, useTheme } from "react-native-paper";
 import { AudioPlayerContext } from "../../contexts/AudioPlayerContext";
@@ -43,11 +43,16 @@ function FooterPlayer() {
               backgroundColor: them.colors.secondary,
             }}
           >
-            <Ionicons
+           
+             {currentTrack.image ? 
+             <Image source={{ uri: currentTrack.image }} 
+             style={{ width: 80, height: 80 }} /> :
+             <Ionicons
               name={"musical-notes"}
               size={30}
               color={them.colors.primary}
             />
+             }
           </View>
           <View style={{ flex: 5, padding: 10 }}>
             <Text style={{ margin: 5, fontSize: 16, fontWeight: "bold" }}>

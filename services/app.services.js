@@ -41,3 +41,12 @@ export const getAlbumTracks = (album_id) => {
     },
   })
 }
+
+
+export const searchSongs = (song_name) => {
+  return axios.get(API.SERCH_SONG.replace('[SONG_NAME]', song_name), {
+    headers: {
+      Authorization: "Bearer " + AppToken,
+    },
+  })
+}
