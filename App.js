@@ -6,6 +6,7 @@ import Songs from "./components/songs/Songs";
 import { createStackNavigator } from "@react-navigation/stack";
 import { AudioPlayerProvider } from "./contexts/AudioPlayerContext";
 import MusicPlayer from "./components/songs/MusicPlayer";
+import GetStarted from "./components/screens/GetStarted";
 const Stack = createStackNavigator();
 const theme = {
   ...DefaultTheme,
