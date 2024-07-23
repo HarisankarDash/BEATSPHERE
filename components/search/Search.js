@@ -65,19 +65,21 @@ const Search = () => {
   const handleSearchQueryChange = (query) => {
     setSearchQuery(query);
   };
-
   const handlePlay = (item) => {
-    setCurrentTrack(item);
-    loadAudio(item.preview_url);
-    setIsPlaying(false);
-    setDuration(0);
-
-    // Add current song to the beginning of the array
-    setLastPlayedSongs([item, ...lastPlayedSongs]);
-
+    // Check if the item is already in lastPlayedSongs
+    if (!lastPlayedSongs.some(song => song.id === item.id)) {
+      setCurrentTrack(item);
+      loadAudio(item.preview_url);
+      setIsPlaying(false);
+      setDuration(0);
+  
+      // Add current song to the beginning of the array
+      setLastPlayedSongs([item, ...lastPlayedSongs]);
+    }
+  
     navigation.navigate("Player");
   };
-
+  
   const removeLastPlayed = (index) => {
     const updatedSongs = [...lastPlayedSongs];
     updatedSongs.splice(index, 1);
@@ -135,7 +137,7 @@ const Search = () => {
           <Appbar.Content title="Search" />
         </Appbar.Header>
         <Searchbar
-          placeholder="Search songs..."
+          placeholder="What's on your mind?"
           onChangeText={handleSearchQueryChange}
           value={searchQuery}
           style={{ marginHorizontal: 8, marginTop: 10 }}
