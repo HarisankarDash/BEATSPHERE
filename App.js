@@ -24,9 +24,14 @@ export default function App() {
       <PaperProvider theme={theme}>
         <AppContextProvider>
           <NavigationContainer>
-            <Stack.Navigator initialRouteName="DashBoard">
+            <Stack.Navigator initialRouteName="GetStarted">
               <Stack.Screen
-                name="DashBoard"
+                name="GetStarted"
+                component={GetStarted}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Dashboard"
                 component={NavBar}
                 options={{ headerShown: false }}
               />
