@@ -6,6 +6,7 @@ import Songs from "./components/songs/Songs";
 import { createStackNavigator } from "@react-navigation/stack";
 import { AudioPlayerProvider } from "./contexts/AudioPlayerContext";
 import MusicPlayer from "./components/songs/MusicPlayer";
+import GetStarted from "./components/screens/GetStarted";
 const Stack = createStackNavigator();
 const theme = {
   ...DefaultTheme,
@@ -23,9 +24,14 @@ export default function App() {
       <PaperProvider theme={theme}>
         <AppContextProvider>
           <NavigationContainer>
-            <Stack.Navigator initialRouteName="DashBoard">
+            <Stack.Navigator initialRouteName="GetStarted">
               <Stack.Screen
-                name="DashBoard"
+                name="GetStarted"
+                component={GetStarted}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Dashboard"
                 component={NavBar}
                 options={{ headerShown: false }}
               />
