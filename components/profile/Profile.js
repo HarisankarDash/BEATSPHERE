@@ -1,13 +1,22 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { Appbar, useTheme, Avatar, TextInput, Button } from 'react-native-paper';
 import { View, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native'; // Import useNavigation hook
 
 function Profile() {
+  const navigation = useNavigation(); // Initialize navigation
+
   const theme = useTheme();
 
+  // State variables for username and email
+  const [username, setUsername] = useState("John Doe");
+  const [email, setEmail] = useState("johndoe@example.com");
+
   const handleLogout = () => {
-    // Add your logout logic here
-    console.log('Logout button pressed');
+ 
+
+    // Navigate to "GetStarted" or another screen after logout
+    navigation.navigate('GetStarted'); // Replace 'GetStarted' with your screen name
   };
 
   return (
@@ -19,14 +28,14 @@ function Profile() {
         <Avatar.Image size={230} source={require('../../assets/avatar.png')} />
         <TextInput
           label="Name"
-          value="John Doe"  // Replace with actual user name
+          value={username} // Display username dynamically
           mode="outlined"
           disabled
           style={styles.textInput}
         />
         <TextInput
           label="Email"
-          value="johndoe@example.com"  // Replace with actual user email
+          value={email} // Display email dynamically
           mode="outlined"
           disabled
           style={styles.textInput}
@@ -50,6 +59,7 @@ const styles = StyleSheet.create({
   textInput: {
     width: '80%',
     marginTop: 40,
+    
   },
   logoutButton: {
     marginTop: 40,

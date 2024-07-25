@@ -1,5 +1,6 @@
 export const AppToken =
   "BQBHmUR85MEWqpErAlFF_dZSWPSUoePowLPDD671YHtK2X3aKZMK7dH_wjmk2w93gx8rA2xXQhN08IZyanBh8921G163Dhi_4EKqTxcHjBet4QmU8W30hVT5UqJhAp3tIdTqlM-CshLWYguwRGlANDKQpY1t4xPAUpf_bVc5M20h_2Ms6ScWMCl-10_TdCjs566vC6XoS9ump1SBikRoxkZ1h2Cf3qpBlQ-Apar2Y1YscBUzaVYxkwak6WRIr-gjIUlq9wqfQLAt1bz2a3z6nMvK";
+  
 
 export const ARTIST_IDS = [
   "2CIMQHirSU0MQqyYHq0eOx",
